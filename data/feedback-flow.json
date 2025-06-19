@@ -1,0 +1,127 @@
+{
+  "start": {
+    "question": "How are you planning to use this prayer?",
+    "options": [
+      { "label": "Personal devotion", "next": "personal_followup" },
+      { "label": "Worship planning", "next": "worship_followup" },
+      { "label": "Special event or gathering", "next": "event_followup" },
+      { "label": "Creative inspiration", "next": "creative_followup" },
+      { "label": "Just browsing", "next": "browsing_followup" },
+      { "label": "Other", "next": "other_text" }
+    ]
+  },
+  "personal_followup": {
+    "question": "Have you shared this with anyone else?",
+    "options": [
+      { "label": "Yes", "next": "shared_with_whom" },
+      { "label": "No", "next": "personal_resonance" }
+    ]
+  },
+  "shared_with_whom": {
+    "question": "With a group or individual?",
+    "options": [
+      { "label": "Small group", "next": "reflective_feedback" },
+      { "label": "One person", "next": "reflective_feedback" },
+      { "label": "Online", "next": "reflective_feedback" },
+      { "label": "Other", "next": "reflective_feedback" }
+    ]
+  },
+  "personal_resonance": {
+    "question": "What resonated most with you in this piece?",
+    "type": "text",
+    "next": "reflective_feedback"
+  },
+  "worship_followup": {
+    "question": "What kind of worship setting?",
+    "options": [
+      { "label": "Small congregation", "next": "worship_denomination" },
+      { "label": "Large church", "next": "worship_denomination" },
+      { "label": "Online-only", "next": "worship_denomination" },
+      { "label": "Hybrid", "next": "worship_denomination" },
+      { "label": "House church", "next": "worship_denomination" },
+      { "label": "Other", "next": "worship_denomination" }
+    ]
+  },
+  "worship_denomination": {
+    "question": "What’s your denomination or tradition?",
+    "type": "text",
+    "next": "worship_usage"
+  },
+  "worship_usage": {
+    "question": "How will this be used in the service?",
+    "options": [
+      { "label": "Call to Worship", "next": "reflective_feedback" },
+      { "label": "Communal prayer", "next": "reflective_feedback" },
+      { "label": "Prayers of the people", "next": "reflective_feedback" },
+      { "label": "Liturgy closing", "next": "reflective_feedback" },
+      { "label": "Other", "next": "reflective_feedback" }
+    ]
+  },
+  "event_followup": {
+    "question": "What kind of event?",
+    "options": [
+      { "label": "Social justice gathering", "next": "event_details" },
+      { "label": "Interfaith vigil", "next": "event_details" },
+      { "label": "Retreat", "next": "event_details" },
+      { "label": "Protest", "next": "event_details" },
+      { "label": "Workshop or teaching space", "next": "event_details" },
+      { "label": "Other", "next": "event_details" }
+    ]
+  },
+  "event_details": {
+    "question": "Want to share a few words about the event?",
+    "type": "text",
+    "next": "reflective_feedback"
+  },
+  "creative_followup": {
+    "question": "What did this inspire you to create?",
+    "options": [
+      { "label": "A poem or journal entry", "next": "creative_response" },
+      { "label": "A sermon or reflection", "next": "creative_response" },
+      { "label": "A song or chant", "next": "creative_response" },
+      { "label": "An art or visual work", "next": "creative_response" },
+      { "label": "A new prayer or litany", "next": "creative_response" },
+      { "label": "Other", "next": "creative_response" }
+    ]
+  },
+  "creative_response": {
+    "question": "Want to share a line or thought that came to you?",
+    "type": "text",
+    "next": "reflective_feedback"
+  },
+  "browsing_followup": {
+    "question": "Was there anything in the language that stuck with you?",
+    "type": "text",
+    "next": "browsing_lit"
+  },
+  "browsing_lit": {
+    "question": "Do you often browse liturgical material for ideas?",
+    "options": [
+      { "label": "Yes", "next": "reflective_feedback" },
+      { "label": "Sometimes", "next": "reflective_feedback" },
+      { "label": "No, this was new for me", "next": "reflective_feedback" }
+    ]
+  },
+  "other_text": {
+    "question": "Tell us a little more about how you're using (or feeling) this.",
+    "type": "text",
+    "next": "reflective_feedback"
+  },
+  "reflective_feedback": {
+    "question": "What’s one thing that could make this prayer more useful to you?",
+    "type": "text",
+    "next": "emotional_response"
+  },
+  "emotional_response": {
+    "question": "Did this prayer speak to you today?",
+    "options": [
+      { "label": "Yes, deeply", "next": "done" },
+      { "label": "Somewhat", "next": "done" },
+      { "label": "Not really", "next": "done" }
+    ]
+  },
+  "done": {
+    "question": "✨ Thanks for sharing. Your feedback really helps improve this work.",
+    "type": "end"
+  }
+}

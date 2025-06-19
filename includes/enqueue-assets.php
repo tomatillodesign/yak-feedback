@@ -12,19 +12,13 @@ add_action( 'wp_enqueue_scripts', function() {
             true
         );
 
-		// wp_enqueue_script(
-		// 	'yak-feedback',
-		// 	plugins_url( 'assets/yak-feedback.js', __FILE__ ),
-		// 	[ 'jquery' ],
-		// 	'1.0',
-		// 	true
-		// );
-
 		wp_localize_script( 'yak-feedback', 'YakFeedback', [
 			'ajax_url' => admin_url( 'admin-ajax.php' ),
 			'nonce'    => wp_create_nonce( 'yak_feedback_nonce' ),
 			'post_id'  => get_the_ID(),
+			'flow_url'  => $plugin_url . 'data/feedback-flow.json',
 		] );
+
 	}
 } );
 
