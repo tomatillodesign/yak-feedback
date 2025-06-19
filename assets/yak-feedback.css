@@ -35,19 +35,19 @@
     margin-top: 3rem;
 	background: #fff;
 	padding: 2rem;
+    padding-top: 1.5rem;
 	border-radius: var(--yak-radius);
 	max-width: 400px;
 	width: 90%;
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
 	position: relative;
-	font-family: system-ui, sans-serif;
 }
 
 /* Question text */
 .yak-feedback-question {
-	font-size: 1.25rem;
 	margin-bottom: 1rem;
-	font-weight: 600;
+	font-weight: 700;
+    line-height: 1.4;
 }
 
 /* Options */
@@ -89,12 +89,126 @@
 /* Close button */
 .yak-feedback-close {
 	position: absolute;
-	top: 0.5rem;
-	right: 0.75rem;
-	background: none;
+	top: -12px;
+    right: -12px;
+	background: #eee;
 	border: none;
 	font-size: 1.5rem;
 	line-height: 1;
 	cursor: pointer;
-	color: #666;
+	color: var(--yak-color-black);
+    transition: all ease-in-out .25s;
+    height: 30px;
+    width: 30px;
+    line-height: 1;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.yak-feedback-close:hover {
+    color: red;
+} 
+
+
+.yak-feedback-toast {
+	position: fixed;
+	bottom: 2rem;
+	left: 50%;
+	transform: translateX(-50%);
+	background: #000;
+	color: #fff;
+	padding: 0.75rem 1.25rem;
+	border-radius: 4px;
+	font-size: 0.9rem;
+	opacity: 0;
+	transition: opacity 0.3s ease, transform 0.3s ease;
+	pointer-events: none;
+	z-index: 9999;
+}
+.yak-feedback-toast.visible {
+	opacity: 0.95;
+	transform: translateX(-50%) translateY(-10px);
+}
+
+
+
+
+.wp-list-table {
+	width: 100%;
+	max-width: 100%;
+	margin-top: 1em;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.wp-list-table th,
+.wp-list-table td {
+	padding: 8px 10px;
+	border: 1px solid #ddd;
+	text-align: left;
+	vertical-align: middle;
+}
+
+.wp-list-table thead th {
+	background: #f1f1f1;
+	font-weight: 600;
+	border-bottom: 2px solid #ddd;
+}
+
+.wp-list-table tbody tr:nth-child(odd) {
+	background-color: #f9f9f9;
+}
+
+.wp-list-table tbody tr:hover {
+	background-color: #f1f1f1;
+}
+
+.wp-list-table.fixed {
+	table-layout: fixed;
+}
+
+.wp-list-table.striped tbody tr:nth-child(odd) {
+	background-color: #f9f9f9;
+}
+
+.wp-list-table.striped tbody tr:hover {
+	background-color: #f1f1f1;
+}
+
+
+
+.yak-feedback-modal {
+	position: fixed;
+	z-index: 9999;
+	left: 0;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+	background: rgba(0,0,0,0.6);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.yak-feedback-modal-content {
+	background: #fff;
+	padding: 1.5rem;
+	border-radius: 8px;
+	max-width: 600px;
+	width: 90%;
+	position: relative;
+	box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.yak-feedback-modal-close {
+	position: absolute;
+	top: 0.5rem;
+	right: 0.5rem;
+	background: none;
+	border: none;
+	font-size: 1.5rem;
+	cursor: pointer;
 }

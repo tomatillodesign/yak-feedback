@@ -40,6 +40,7 @@ function startFeedbackFlow(feedbackFlow) {
 		document.body.appendChild(panel);
 	}
 
+	const inner = panel.querySelector('.yak-feedback-inner');
 	const questionEl = panel.querySelector('.yak-feedback-question');
 	const optionsEl = panel.querySelector('.yak-feedback-options');
 	const closeBtn = panel.querySelector('.yak-feedback-close');
@@ -59,10 +60,22 @@ function startFeedbackFlow(feedbackFlow) {
 		sessionStorage.setItem('yakFeedback', JSON.stringify(responses));
 	}
 
+	// Prevent clicks inside the inner panel from bubbling up and closing the modal
+	inner.addEventListener('click', e => e.stopPropagation());
+
 	closeBtn.addEventListener('click', () => {
 		panel.classList.remove('open');
 		submitIfNeeded();
 	});
+
+	// Close when clicking outside the inner panel
+	panel.addEventListener('click', (e) => {
+		if (!e.target.closest('.yak-feedback-inner')) {
+			panel.classList.remove('open');
+			submitIfNeeded(); // submit partial feedback before close if needed
+		}
+	});
+
 
 	feedbackBtn.addEventListener('click', () => {
 		currentStep = 'start';
@@ -91,10 +104,10 @@ function startFeedbackFlow(feedbackFlow) {
 
 			nextBtn.addEventListener('click', () => {
 				const val = input.value.trim();
-				if (!val) return;
-				saveResponse(step.question, val);
+				saveResponse(step.question, val); // allow blank
 				renderStep(step.next);
 			});
+
 
 			optionsEl.appendChild(input);
 			optionsEl.appendChild(nextBtn);
@@ -141,10 +154,24 @@ function startFeedbackFlow(feedbackFlow) {
 			console.log('[Yak Feedback] Submission response:', data);
 			if (data.success) {
 				sessionStorage.removeItem('yakFeedback');
-				alert('✅ Thanks for your feedback!');
+				console.log('[Yak Feedback] ✅ Submission successful.');
 				responses.length = 0;
-				currentStep = 'start';
-			} else {
+				currentStep = 'q1';
+
+				// Optional: toast-style message
+				const msg = document.createElement('div');
+				msg.className = 'yak-feedback-toast';
+				msg.textContent = 'Thanks for your feedback!';
+				document.body.appendChild(msg);
+
+				setTimeout(() => {
+					msg.classList.add('visible');
+					setTimeout(() => {
+						msg.classList.remove('visible');
+						setTimeout(() => msg.remove(), 500);
+					}, 3000);
+				}, 10);
+}			 else {
 				alert('❌ Feedback failed to send.');
 			}
 		})

@@ -36,3 +36,12 @@ add_action( 'init', 'yak_feedback_register_cpt' );
 // add_action( 'template_redirect', 'yak_feedback_render_button' );
 
 
+add_filter( 'template_include', function( $template ) {
+	if ( is_page( 'feedback-report' ) ) {
+		$new_template = plugin_dir_path( __FILE__ ) . 'includes/admin/page-feedback-report.php';
+		if ( file_exists( $new_template ) ) {
+			return $new_template;
+		}
+	}
+	return $template;
+});
