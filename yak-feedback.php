@@ -17,11 +17,13 @@ if ( ! defined( 'YAK_FEEDBACK_URL' ) ) {
 
 // Autoload core includes
 require_once YAK_FEEDBACK_DIR . 'includes/cpt-register.php';
+require_once YAK_FEEDBACK_DIR . 'includes/ajax-save-feedback.php';
 require_once YAK_FEEDBACK_DIR . 'includes/enqueue-assets.php';
-require_once YAK_FEEDBACK_DIR . 'includes/feedback-save.php';
-require_once YAK_FEEDBACK_DIR . 'includes/render-button.php';
-require_once YAK_FEEDBACK_DIR . 'includes/admin-columns.php';
-require_once YAK_FEEDBACK_DIR . 'includes/admin-feedback-view.php';
+require_once YAK_FEEDBACK_DIR . 'includes/admin/meta-boxes.php';
+// require_once YAK_FEEDBACK_DIR . 'includes/feedback-save.php';
+// require_once YAK_FEEDBACK_DIR . 'includes/render-button.php';
+// require_once YAK_FEEDBACK_DIR . 'includes/admin-columns.php';
+// require_once YAK_FEEDBACK_DIR . 'includes/admin-feedback-view.php';
 
 // Optional utilities and reporting
 // require_once YAK_FEEDBACK_DIR . 'includes/utils.php';
@@ -29,6 +31,8 @@ require_once YAK_FEEDBACK_DIR . 'includes/admin-feedback-view.php';
 
 // Init hooks
 add_action( 'init', 'yak_feedback_register_cpt' );
-add_action( 'wp_enqueue_scripts', 'yak_feedback_enqueue_assets' );
-add_action( 'admin_enqueue_scripts', 'yak_feedback_enqueue_assets_admin' );
-add_action( 'template_redirect', 'yak_feedback_render_button' );
+// add_action( 'wp_enqueue_scripts', 'yak_feedback_enqueue_assets' );
+// add_action( 'admin_enqueue_scripts', 'yak_feedback_enqueue_assets_admin' );
+// add_action( 'template_redirect', 'yak_feedback_render_button' );
+
+
