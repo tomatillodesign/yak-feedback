@@ -117,7 +117,7 @@ function startFeedbackFlow(feedbackFlow) {
 
 		if (step.type === 'end') {
 			const msg = document.createElement('p');
-			msg.textContent = step.question;
+			msg.textContent = '';
 			optionsEl.appendChild(msg);
 			setTimeout(submitFeedback, 2000);
 			return;

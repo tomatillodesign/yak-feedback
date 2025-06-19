@@ -1,6 +1,6 @@
 {
   "start": {
-    "question": "How are you planning to use this prayer?",
+    "question": "How are you planning to use this?",
     "options": [
       { "label": "Personal devotion", "next": "personal_followup" },
       { "label": "Worship planning", "next": "worship_followup" },
@@ -121,7 +121,7 @@
     ]
   },
   "done": {
-    "question": "✨ Thanks for sharing. Your feedback really helps improve this work.",
+    "question": "🙏 Thanks for sharing. Your feedback really helps improve this work.",
     "type": "end"
   }
 }

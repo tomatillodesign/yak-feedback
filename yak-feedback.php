@@ -45,3 +45,8 @@ add_filter( 'template_include', function( $template ) {
 	}
 	return $template;
 });
+
+
+add_action( 'admin_menu', function() {
+	remove_submenu_page( 'edit.php?post_type=yak_feedback', 'post-new.php?post_type=yak_feedback' );
+}, 999 );

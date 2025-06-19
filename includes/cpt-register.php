@@ -28,5 +28,8 @@ function yak_feedback_register_cpt() {
 		'has_archive'         => false,
 		'show_in_rest'        => false,
 		'exclude_from_search' => true,
+		'capabilities' => [
+			'create_posts' => 'do_not_allow', // Disable Add New
+		],
 	] );
 }

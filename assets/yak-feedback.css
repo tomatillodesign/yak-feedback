@@ -204,6 +204,7 @@
 }
 
 .yak-feedback-modal-close {
+    color: red;
 	position: absolute;
 	top: 0.5rem;
 	right: 0.5rem;
@@ -211,4 +212,33 @@
 	border: none;
 	font-size: 1.5rem;
 	cursor: pointer;
+}
+
+
+.clb-yak-feedback-text-wrapper {
+    margin-bottom:1rem; 
+    padding:0.5rem; 
+    background:#eee; 
+    border-radius:4px; 
+    white-space: pre-wrap;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+a.yak-feedback-view-entry {
+    font-size: var(--yak-font-xs);
+    opacity: 0.5;
+}
+
+a.yak-feedback-view-entry:hover {
+    opacity: 1;
+}
+
+h3.yak-feedback-modal-header {
+    margin-top: 0;
+}
+
+.yak-feedback-modal-content ul {
+    margin-top: 1rem;
 }
